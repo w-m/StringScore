@@ -26,10 +26,9 @@
 }
 
 - (NSCharacterSet *)invalidCharacterSet {
-    NSMutableCharacterSet *workingInvalidCharacterSet = [NSCharacterSet lowercaseLetterCharacterSet];
-    [workingInvalidCharacterSet formUnionWithCharacterSet:[NSCharacterSet uppercaseLetterCharacterSet]];
-    [workingInvalidCharacterSet addCharactersInString:@" "];
-    NSCharacterSet *invalidCharacterSet = [workingInvalidCharacterSet invertedSet];
+    NSMutableCharacterSet *invalidCharacterSet = [NSCharacterSet controlCharacterSet];
+    [invalidCharacterSet formUnionWithCharacterSet:[NSCharacterSet illegalCharacterSet]];
+    [invalidCharacterSet formUnionWithCharacterSet:[NSCharacterSet symbolCharacterSet]];
     return invalidCharacterSet;
 }
 
